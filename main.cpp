@@ -1,26 +1,29 @@
 #include <iostream>
-#include <ctime>
+#include <cmath>
+
 using namespace std;
+
 int main()
 {
-int x;
-int y;
-cin>>x>>y;
-int **arr= new int *[x];
-    srand(time(NULL));
-    for( int i = 0; i < x; i++ ) {
-        arr[i]=new int[y];
-    }
-    for( int i = 0; i < x; i++ ){
-        for( int j = 0; j < y; j++ ) {
-        arr[i][j] = rand()%100;
+int num;
+cin>>num;
+int ret = sqrt(num);
+    if(num<1)
+        cout<<"prime number have to be positive";
+        else if(num==2)
+        cout<<num<<" is prime";
+    else {
+        for ( int i = 2, j = (sqrt(num)+1); i <= (j+1); i++ ) {
+
+
+            if(num%i == 0) {
+                cout<<num<<" number isn't prime "<<num<<" is divided into "<<i;
+                return 0;
+            }
+            if (i == j){
+                cout<<num<<" is prime!";
+                return 0;
+            }
         }
-    }
-
-    for( int i = 0; i < x; i++ ) {
-        cout<<endl;
-        for( int j = 0; j < y; j++ )
-        cout<<arr[i][j]<<"  ";
-    }
 }
-
+}
